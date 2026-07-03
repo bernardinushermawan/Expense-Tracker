@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Expenses from './Expenses';
-import Sorter from './Sorter'
+import React, { useState } from 'react';
 
 const InputForm = ({onFetch}) => {
     const[isOpen, setIsOpen] = useState(false);
