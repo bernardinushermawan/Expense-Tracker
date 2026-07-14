@@ -42,7 +42,7 @@ const Sorter = ({selectedMonth, setSelectedMonth, selectedCategory, setSelectedC
                 </div>
                 <div className="sorter-container2">
                     <div className="header" onClick={()=>setIsOpen2(!isOpen2)}>
-                        {selectedCategory2}
+                        {selectedCategory}
                         <span className={`arrow ${isOpen2 ? 'open' : ''}`}>▼</span>
                     </div>
 
