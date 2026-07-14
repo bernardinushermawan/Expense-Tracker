@@ -7,20 +7,29 @@ import { useEffect, useState } from 'react';
 function App() {
   const[expenses,setExpenses] = useState([]);
   const[selectedMonth, setSelectedMonth] = useState("All Months");
+  const[selectedCategory, setSelectedCategory] = useState("All Categories");
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  const filteredExpenses = expenses.filter(expense => {
-    if(selectedMonth==="All Months" || selectedMonth==="Select Month"){
-      return true;
+const filteredExpenses = expenses.filter(expense => {
+    // Check Month Match
+    let matchesMonth = true;
+    if (selectedMonth !== "All Months" && selectedMonth !== "Select Month") {
+      const dateString = expense.DATE;
+      if (!dateString) return false;
+      const monthNumber = parseInt(dateString.split('-')[1], 10);
+      const expenseMonthName = monthNames[monthNumber - 1];
+      matchesMonth = (expenseMonthName === selectedMonth);
     }
 
-    const dateString = expense.DATE
-    if(!dateString) return false
+    // Check Category Match
+    let matchesCategory = true;
+    if (selectedCategory !== "All Categories" && selectedCategory !== "Select Category") {
+      matchesCategory = (expense.CATEGORY === selectedCategory);
+    }
 
-    const monthNumber = parseInt(dateString.split('-')[1],10);
-    const expenseMonthName = monthNames[monthNumber-1];
-    return expenseMonthName===selectedMonth;
-  })
+    // Item must match both filters
+    return matchesMonth && matchesCategory;
+  });
 
   const totalExpenseAmount = filteredExpenses.reduce((sum, expense) => {
     const price = parseFloat(expense.PRICE || 0);
@@ -83,10 +92,13 @@ function App() {
       <Sorter 
         selectedMonth = {selectedMonth}
         setSelectedMonth = {setSelectedMonth}
+        selectedCategory = {selectedCategory}
+        setSelectedCategory = {setSelectedCategory}
       />
 
       <div className="monthly-total-container">
-        <h3>Total {selectedMonth} : 
+        <h3>
+          Total {selectedMonth} ({selectedCategory}): 
           <span> ${totalExpenseAmount.toFixed(2)}</span>
         </h3>
       </div>
