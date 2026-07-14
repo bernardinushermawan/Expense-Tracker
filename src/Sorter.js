@@ -1,12 +1,10 @@
 import { useState } from "react";
 
 //type SFC for new template
-const Sorter = ({selectedMonth, setSelectedMonth}) => {
+const Sorter = ({selectedMonth, setSelectedMonth, selectedCategory, setSelectedCategory}) => {
     const [isOpen1,setIsOpen1] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
  
-    const [selectedCategory2, setSelectedCategory2] = useState("Select Category");
-
     const months = ["Janury", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const categories2 = ["Food", "Groceries", "Transportation", "Others"];
 
@@ -17,7 +15,7 @@ const Sorter = ({selectedMonth, setSelectedMonth}) => {
 
     const handleSelect2 = (category) => {
         setIsOpen2(false);
-        setSelectedCategory2(category);
+        setSelectedCategory(category);
     }
 
     return ( 
