@@ -1,11 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Silkscreen:wght@400;700&display=swap');
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #CBDCEB;
+  background-color: #D9D9D9;
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", system-ui, sans-serif;
+  background-image: 
+    linear-gradient(to right, #1b1c2a 1px, transparent 1px),
+    linear-gradient(to bottom, #1b1c2a 1px, transparent 1px);
+  
+  /* Controls the size of the grid squares (40px by 40px) */
+  background-size: 40px 40px;
 }
 
 
@@ -20,15 +29,14 @@ body {
   max-width: 500px;
   padding: 30px;
   margin: 20px auto;
-  background-color: #F5EFE6;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background-color: #F8F4EB;
+  box-shadow: 8px 8px 0px 0px #2C1818;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   color: #E2A16F;
-  font-family: sour gummy;
+  font-family: "Silkscreen";
 }
 
 .wraper {
@@ -39,10 +47,17 @@ body {
   justify-content: space-between;
 }
 
+.wraper p,
+.sorter-container .header,
+.monthly-total-container h3 {
+  font-size: 20px;
+}
+
 .wraper p {
   margin: 10px;
-  font-size: 25px;
   font-weight: bold;
+  font-family: inherit;
+  letter-spacing: -0.05em;
 }
 
 .wraper input{
@@ -50,10 +65,10 @@ body {
   height: 10px;
   margin: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
   color: #727272;
   font-size: 20px;
-  font-family: sour gummy;
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
   background-color: white;
   width: 60%;
@@ -74,9 +89,9 @@ body {
   font-size: 18px;
 }
 
-.wraper input::placeholder {
+.input-container input::placeholder {
   color: #727272;
-  font-family: sour gummy;
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
 }
 
@@ -91,9 +106,8 @@ body {
   height: 10px;
   margin: 10px;
   border: none;
-  border-radius: 5px;
   color: #727272;
-  font-family: sour gummy;
+  font-family: "DM Sans", sans-serif;
   font-weight: bold;
   font-size: 18px;
   background-color: white;
@@ -120,6 +134,10 @@ body {
   overflow: hidden;
 }
 
+.input-container .dropdown-list {
+  border-radius: 0;
+}
+
 .dropdown-item {
   padding: 13px 15px;
   color: #E2A16F;
@@ -134,6 +152,11 @@ body {
   font-weight: bold;
 }
 
+.input-container .dropdown-item {
+  color: #727272;
+  font-family: "DM Sans", sans-serif;
+}
+
 .arrow {
   font-size: 15px;
   transition: transform 0.3s;
@@ -146,13 +169,14 @@ body {
 .addBtn{
   width: 100%;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   height: 50px;
   margin: 10px;
   background-color: #5D688A;
-  font-family: sour gummy;
+  box-shadow: 4px 4px 0px 0px #2C1818;
   font-weight: bold;
   font-size: 20px;
+  font-family: "Silkscreen";
   color: #FFF2EF;
   transition: 0.3s;
 }
@@ -172,14 +196,13 @@ body {
   padding: 30px;
   margin: 20px auto;
   background-color: #F5EFE6;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 8px 8px 0px 0px #2C1818;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   color: #E2A16F;
-  font-family: sour gummy;
+  font-family: "Silkscreen", monospace;
   font-size: 20px;
   font-weight: bold;
 }
@@ -189,14 +212,18 @@ body {
   justify-content: space-evenly;
   align-items: center;
   transition: 0.5s;
-  height: 30px;
-  font-size: 22px;
+  min-height: 30px;
+  letter-spacing: -0.05em;
 }
 
 .header:hover{
   background-color: white;
-  border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sorter-container .dropdown-list {
+  font-family: "DM Sans", sans-serif;
+  border-radius: 0;
 }
 
 .sorter-container2{
@@ -220,12 +247,11 @@ body {
   background-color: #F5EFE6;
   margin: 20px;
   padding: 15px;
-  border-radius: 15px;
-  font-family: sour gummy;
+  font-family: "DM Sans", sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: #E2A16F;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 8px 8px 0px 0px #2C1818;
 }
 
 .expense-box-header{
@@ -234,6 +260,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0px 5px;
+  font-family: "Silkscreen", monospace;
 }
 
 hr{
@@ -267,7 +294,7 @@ hr{
   border-radius: 5px;
   height: 25px;
   padding: 5px;
-  font-family: sour gummy;
+  font-family: inherit;
   font-size: 15px;
   font-weight: bold;
   color: #E2A16F;
@@ -280,7 +307,6 @@ hr{
   border-radius: 5px;
   height: 25px;
   padding: 5px;
-  font-family: sour gummy;
   font-size: 15px;
   font-weight: bold;
   color: #E2A16F;
@@ -324,7 +350,7 @@ hr{
   width: 200px;
   height: 40px;
   color: #ECE7D1;
-  font-family: sour gummy;
+  font-family: inherit;
   font-size: 20px;
   font-weight: bold;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -361,14 +387,13 @@ hr{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sour gummy;
-  font-size: 20px;
+  font-family: "Silkscreen", monospace;
   font-weight: bold;
+  letter-spacing: -0.05em;
   color: #9E3B3B;
   padding: 30px;
-  margin: 20px auto;
+  margin: 40px auto 20px;
   width: 100%;
   max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 8px 8px 0px 0px #2C1818;
 }

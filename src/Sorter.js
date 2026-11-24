@@ -5,8 +5,8 @@ const Sorter = ({selectedMonth, setSelectedMonth, selectedCategory, setSelectedC
     const [isOpen1,setIsOpen1] = useState(false);
     const [isOpen2,setIsOpen2] = useState(false);
  
-    const months = ["Janury", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const categories2 = ["Food", "Groceries", "Transportation", "Others"];
+    const months = ["All Months", "Janury", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const categories2 = ["All Categories", "Food", "Groceries", "Transportation", "Others"];
 
     const handleSelect1 = (month) => {
         setIsOpen1(false);
@@ -42,7 +42,7 @@ const Sorter = ({selectedMonth, setSelectedMonth, selectedCategory, setSelectedC
                 </div>
                 <div className="sorter-container2">
                     <div className="header" onClick={()=>setIsOpen2(!isOpen2)}>
-                        {selectedCategory2}
+                        {selectedCategory}
                         <span className={`arrow ${isOpen2 ? 'open' : ''}`}>▼</span>
                     </div>
 
